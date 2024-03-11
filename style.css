@@ -54,34 +54,33 @@ body {
 }
 
 #top {
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 h1 {
   color: #333;
-  font-size: 28px;
+  font-size: 50px;
   text-align: center;
 }
 
 p {
   color: #666;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
+  margin: 3px;
 }
 
+#mid {
+  max-width: 90%;
+}
 #nameEmail {
   display: flex;
 }
 
-#name,
-#email {
-}
-
 .form-group {
-  margin: 5px;
-  margin-bottom: 20px;
+  margin: 0 5px 20px 20px;
 }
 
 label {
@@ -99,20 +98,26 @@ textarea {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #efefef;
+}
+
+#sumbitBtn {
+  display: flex;
+  justify-content: flex-end;
 }
 
 button {
   display: block;
-  width: 100%;
-  padding: 10px;
+  width: 95%;
+  padding: 25px;
   font-size: 18px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #597952;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #6b9062;
 }
