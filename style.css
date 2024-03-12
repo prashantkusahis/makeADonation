@@ -29,10 +29,10 @@ body {
 #donationPage1 {
   height: 100%;
   width: 40%;
-  background-color: aqua;
   background-image: url(./donate.jpg);
   background-size: cover;
 }
+
 #donationPage2 {
   height: 100%;
   width: 60%;
@@ -120,4 +120,93 @@ button {
 
 button:hover {
   background-color: #6b9062;
+}
+
+@media (min-width: 521px) and (max-width: 999px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+
+  .form-group {
+    margin-bottom: 10px; /* Adjusted margin for responsiveness */
+  }
+
+  button {
+    padding: 12px; /* Adjusted padding for responsiveness */
+    font-size: 1.2rem; /* Adjusted font size for responsiveness */
+  }
+}
+
+@media (max-width: 520px) {
+  #donationPage {
+    flex-direction: column; /* Added for responsiveness */
+  }
+
+  #donationPage1 {
+    height: 25%; /* Adjusted height for responsiveness */
+    width: 100%; /* Adjusted width for responsiveness */
+    background-image: url(./donateMediaQ.jpg);
+    background-size: cover;
+  }
+
+  #donationPage2 {
+    height: 75%; /* Adjusted height for responsiveness */
+    width: 100%; /* Adjusted width for responsiveness */
+  }
+
+  #makeADonation {
+    height: 95%;
+    width: 95%; /* Adjusted width for responsiveness */
+  }
+
+  #top {
+    width: 90%;
+    margin: 3px;
+    padding: 3px;
+  }
+
+  h1 {
+    font-size: 1.2rem; /* Adjusted font size for responsiveness */
+  }
+
+  p {
+    font-size: 0.6rem; /* Adjusted font size for responsiveness */
+    margin: 1px;
+  }
+
+  #nameEmail {
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    margin: 3px; /* Adjusted margin for responsiveness */
+  }
+
+  label {
+    margin-bottom: 3px;
+    font-size: 0.8rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea {
+    font-size: 0.7rem; /* Adjusted font size for responsiveness */
+  }
+
+  #sumbitBtn {
+    margin-top: 20px; /* Adjusted margin for responsiveness */
+  }
+
+  #sumbitBtn {
+    justify-content: center;
+  }
+  button {
+    width: 100%; /* Adjusted width for responsiveness */
+    padding: 15px; /* Adjusted padding for responsiveness */
+    font-size: 1.2rem; /* Adjusted font size for responsiveness */
+  }
 }
