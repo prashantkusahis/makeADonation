@@ -27,7 +27,12 @@
               </p>
             </div>
             <div id="mid">
-              <form action="#" method="POST" id="donation-form">
+              <form
+                action="#"
+                method="POST"
+                id="donation-form"
+                onsubmit="return validateForm()"
+              >
                 <div id="nameEmail">
                   <div class="form-group">
                     <label for="name">Name:</label>
@@ -89,5 +94,43 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+      function validateForm() {
+        // Added client-side form validation function
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var amount = document.getElementById("amount").value;
+        var valid = true;
+
+        if (name.trim() === "") {
+          alert("Please enter your name.");
+          valid = false;
+        }
+
+        if (email.trim() === "") {
+          alert("Please enter your email.");
+          valid = false;
+        } else if (!validateEmail(email)) {
+          alert("Please enter a valid email address.");
+          valid = false;
+        }
+
+        if (amount.trim() === "") {
+          alert("Please enter the donation amount.");
+          valid = false;
+        } else if (isNaN(amount) || parseFloat(amount) <= 0) {
+          alert("Please enter a valid donation amount.");
+          valid = false;
+        }
+
+        return valid;
+      }
+
+      function validateEmail(email) {
+        // Added email validation function
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+    </script>
   </body>
 </html>
