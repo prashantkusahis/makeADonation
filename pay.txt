@@ -1,0 +1,84 @@
+key id : rzp_test_ka77qiOWHdGxgT
+key secret: E9CjKbP8khDLO0xaGJKCxe63
+
+To integrate Razorpay payment into your website, you will need to follow these steps:
+
+1. **Create a Razorpay Account**: Go to the Razorpay website and create an account. Once logged in, you'll have access to the dashboard.
+
+2. **Set up a Payment Gateway**: In the Razorpay dashboard, navigate to the settings section and set up a payment gateway for your website. You'll need to provide some information about your business and banking details.
+
+3. **Get API Keys**: After setting up the payment gateway, you'll get API keys (Key ID and Key Secret) from Razorpay. These keys are essential for integrating Razorpay with your website.
+
+4. **Include Razorpay SDK**: Add Razorpay SDK to your HTML page. You can include it using a script tag:
+
+    ```html
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    ```
+
+5. **Create a Payment Form**: Create a form in your HTML for collecting payment details like amount, name, email, etc. Include a button to trigger the payment process.
+
+6. **Handle Payment Process**: When the user submits the form, use JavaScript to trigger the Razorpay payment process. This involves creating an instance of Razorpay and providing payment details such as amount, currency, etc.
+
+7. **Handle Payment Response**: After successful payment, Razorpay will send a response to the specified callback URL. You need to handle this response on your server-side to verify the payment and update your database accordingly.
+
+Here's a simplified example of how you might implement Razorpay payment integration:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Integration</title>
+    <!-- Include Razorpay SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <form id="payment-form">
+        <input type="hidden" name="amount" value="1000"> <!-- Amount in paise (100 paise = ₹1) -->
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="button" onclick="payWithRazorpay()">Pay Now</button>
+    </form>
+
+    <script>
+        function payWithRazorpay() {
+            var form = document.getElementById('payment-form');
+            var amount = form.amount.value;
+            var name = form.name.value;
+            var email = form.email.value;
+
+            var options = {
+                "key": "YOUR_API_KEY", // Replace with your actual API key
+                "amount": amount,
+                "name": "Your Company Name",
+                "description": "Donation",
+                "image": "https://your-company-logo.png",
+                "handler": function (response) {
+                    // Handle payment success
+                    alert('Payment successful: ' + response.razorpay_payment_id);
+                    // You can also send payment details to your server for further processing
+                },
+                "prefill": {
+                    "name": name,
+                    "email": email
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#F37254"
+                }
+            };
+
+            var rzp = new Razorpay(options);
+            rzp.open();
+        }
+    </script>
+</body>
+</html>
+```
+
+Make sure to replace `"YOUR_API_KEY"` with your actual Razorpay API key.
+
+This is a basic implementation. Depending on your requirements and the backend technology you're using, you may need to handle payment responses on the server side as well. Make sure to refer to Razorpay's official documentation for more detailed information and best practices.
